@@ -75,3 +75,57 @@ F-statistic: 21.74 on 5 and 44 DF,  p-value: 6.712e-11
 > lot_sum <- suspension %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups = 'keep')
 > View(lot_sum)
 >
+
+# Deliverable 3
+
+t.test((suspension$PSI), mu=1500)
+
+    One Sample t-test
+
+data:  (suspension$PSI)
+t = -1.8931, df = 149, p-value = 0.06028
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1497.507 1500.053
+sample estimates:
+mean of x
+  1498.78
+
+> t.test(subset(suspension,Manufacturing_Lot == "Lot1")$PSI, mu = 1500)
+
+    One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot1")$PSI
+t = 0, df = 49, p-value = 1
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.719 1500.281
+sample estimates:
+mean of x
+     1500
+
+> t.test(subset(suspension, Manufacturing_Lot == "Lot2")$PSI, mu = 1500)
+
+    One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot2")$PSI
+t = 0.51745, df = 49, p-value = 0.6072
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.423 1500.977
+sample estimates:
+mean of x
+   1500.2
+
+> t.test(subset(suspension, Manufacturing_Lot == "Lot3")$PSI, mu = 1500)
+
+    One Sample t-test
+
+data:  subset(suspension, Manufacturing_Lot == "Lot3")$PSI
+t = -2.0916, df = 49, p-value = 0.04168
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1492.431 1499.849
+sample estimates:
+mean of x
+  1496.14 
